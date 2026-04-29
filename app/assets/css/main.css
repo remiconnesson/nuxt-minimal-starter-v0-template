@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+
+  --color-background: hsl(232 30% 12%);
+  --color-foreground: hsl(40 20% 92%);
+  --color-card: hsl(232 25% 16%);
+  --color-card-foreground: hsl(40 20% 92%);
+  --color-primary: hsl(35 90% 55%);
+  --color-primary-foreground: hsl(232 30% 12%);
+  --color-secondary: hsl(232 20% 22%);
+  --color-secondary-foreground: hsl(40 20% 85%);
+  --color-muted: hsl(232 20% 20%);
+  --color-muted-foreground: hsl(40 10% 55%);
+  --color-accent: hsl(20 85% 50%);
+  --color-accent-foreground: hsl(40 20% 95%);
+  --color-border: hsl(232 20% 25%);
+  --color-ring: hsl(35 90% 55%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background: linear-gradient(
+      145deg,
+      hsl(0 60% 15%) 0%,
+      hsl(30 40% 12%) 40%,
+      hsl(90 40% 12%) 70%,
+      hsl(140 50% 14%) 100%
+    );
+    background-attachment: fixed;
+    min-height: 100dvh;
+    color: var(--color-foreground);
+  }
+}
+
+@keyframes tile-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tile-merge {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-tile-appear {
+  animation: tile-appear 0.2s ease-out;
+}
+
+.animate-tile-merge {
+  animation: tile-merge 0.2s ease-out;
+}
