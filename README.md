@@ -38,7 +38,7 @@ yarn dev
 bun run dev
 ```
 
-> **Note for v0 users:** If you get a `Module not found` error, you often need to hard restart the dev server (stop it completely and run the dev command again) rather than relying on hot reload.
+> **Note for v0 users:** If you get a `Module not found` error, hard-restart the dev server using the **Hard restart** button in the v0 UI (the power icon next to the running indicator in the preview toolbar).
 
 ## Production
 

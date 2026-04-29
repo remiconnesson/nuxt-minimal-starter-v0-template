@@ -47,8 +47,8 @@ const suggestions = [
       <div>
         <strong>Heads up:</strong> If v0 reports a
         <code>Module not found</code> error, hard-restart the dev server
-        (stop it and run <code>pnpm dev</code> again). Hot reload often
-        won't pick up newly added dependencies on its own.
+        using the <strong>Hard restart</strong> button in the v0 UI
+        (the power icon next to the running indicator in the preview toolbar).
       </div>
     </aside>
 
