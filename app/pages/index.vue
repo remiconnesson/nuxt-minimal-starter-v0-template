@@ -295,6 +295,10 @@ code {
     border-color: #00d896;
   }
 
+  section h2 {
+    color: #ededed;
+  }
+
   .suggestions h3 {
     color: #ededed;
   }
