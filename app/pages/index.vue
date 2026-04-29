@@ -44,7 +44,6 @@ const handleCopySuggestion = async (prompt: string, index: number) => {
 <template>
   <main>
     <header class="hero">
-      <span class="badge">Nuxt 4 · v0 starter</span>
       <h1>Build with Nuxt on v0</h1>
       <p class="lede">
         A minimal Nuxt 4 starter, ready for v0.
@@ -102,19 +101,6 @@ main {
 .hero {
   text-align: center;
   margin-bottom: 3rem;
-}
-
-.badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #00a878;
-  background: #e6f7f1;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
 }
 
 h1 {
@@ -273,11 +259,6 @@ code {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  .badge {
-    color: #00d896;
-    background: rgba(0, 168, 120, 0.15);
   }
 
   .callout {
