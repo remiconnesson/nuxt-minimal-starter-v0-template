@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 232 30% 12%;
+    --foreground: 40 20% 92%;
+    --card: 232 25% 16%;
+    --card-foreground: 40 20% 92%;
+    --primary: 35 90% 55%;
+    --primary-foreground: 232 30% 12%;
+    --secondary: 232 20% 22%;
+    --secondary-foreground: 40 20% 85%;
+    --muted: 232 20% 20%;
+    --muted-foreground: 40 10% 55%;
+    --accent: 20 85% 50%;
+    --accent-foreground: 40 20% 95%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 232 20% 25%;
+    --ring: 35 90% 55%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes tile-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tile-merge {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-tile-appear {
+  animation: tile-appear 0.2s ease-out;
+}
+
+.animate-tile-merge {
+  animation: tile-merge 0.2s ease-out;
+}
