@@ -1,35 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 232 30% 12%;
-    --foreground: 40 20% 92%;
-    --card: 232 25% 16%;
-    --card-foreground: 40 20% 92%;
-    --primary: 35 90% 55%;
-    --primary-foreground: 232 30% 12%;
-    --secondary: 232 20% 22%;
-    --secondary-foreground: 40 20% 85%;
-    --muted: 232 20% 20%;
-    --muted-foreground: 40 10% 55%;
-    --accent: 20 85% 50%;
-    --accent-foreground: 40 20% 95%;
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 232 20% 25%;
-    --ring: 35 90% 55%;
-    --radius: 0.75rem;
-  }
+@theme inline {
+  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+
+  --color-background: hsl(232 30% 12%);
+  --color-foreground: hsl(40 20% 92%);
+  --color-card: hsl(232 25% 16%);
+  --color-card-foreground: hsl(40 20% 92%);
+  --color-primary: hsl(35 90% 55%);
+  --color-primary-foreground: hsl(232 30% 12%);
+  --color-secondary: hsl(232 20% 22%);
+  --color-secondary-foreground: hsl(40 20% 85%);
+  --color-muted: hsl(232 20% 20%);
+  --color-muted-foreground: hsl(40 10% 55%);
+  --color-accent: hsl(20 85% 50%);
+  --color-accent-foreground: hsl(40 20% 95%);
+  --color-border: hsl(232 20% 25%);
+  --color-ring: hsl(35 90% 55%);
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--color-border);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
 }
 
