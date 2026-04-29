@@ -29,16 +29,24 @@ const suggestions = [
     prompt: 'Create a /pricing page with three tiers (Free, Pro, Team) in a responsive card layout.',
   },
 ]
+
+const copiedIndex = ref<number | null>(null)
+
+const handleCopySuggestion = async (prompt: string, index: number) => {
+  await navigator.clipboard.writeText(prompt)
+  copiedIndex.value = index
+  setTimeout(() => {
+    copiedIndex.value = null
+  }, 2000)
+}
 </script>
 
 <template>
   <main>
     <header class="hero">
-      <span class="badge">Nuxt 4 · v0 starter</span>
       <h1>Build with Nuxt on v0</h1>
       <p class="lede">
-        A minimal Nuxt 4 starter, ready for v0. File-based routing, auto-imports,
-        and plain CSS — no framework opinions baked in.
+        A minimal Nuxt 4 starter, ready for v0.
       </p>
     </header>
 
@@ -55,9 +63,17 @@ const suggestions = [
     <section>
       <h2>Try asking v0 to&hellip;</h2>
       <ul class="suggestions">
-        <li v-for="s in suggestions" :key="s.title">
+        <li 
+          v-for="(s, index) in suggestions" 
+          :key="s.title"
+          @click="handleCopySuggestion(s.prompt, index)"
+          class="suggestion-item"
+        >
           <h3>{{ s.title }}</h3>
           <p>&ldquo;{{ s.prompt }}&rdquo;</p>
+          <div v-if="copiedIndex === index" class="copy-feedback">
+            copied to clipboard, now paste in the v0 chat area
+          </div>
         </li>
       </ul>
     </section>
@@ -85,19 +101,6 @@ main {
 .hero {
   text-align: center;
   margin-bottom: 3rem;
-}
-
-.badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #00a878;
-  background: #e6f7f1;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
 }
 
 h1 {
@@ -176,6 +179,8 @@ section h2 {
   border-radius: 10px;
   padding: 1rem 1.125rem;
   transition: border-color 0.15s, transform 0.15s;
+  cursor: pointer;
+  position: relative;
 }
 
 .suggestions li:hover {
@@ -195,6 +200,23 @@ section h2 {
   color: #666;
   margin: 0;
   line-height: 1.5;
+}
+
+.copy-feedback {
+  font-size: 0.75rem;
+  color: #00a878;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 footer {
@@ -239,11 +261,6 @@ code {
     -webkit-text-fill-color: transparent;
   }
 
-  .badge {
-    color: #00d896;
-    background: rgba(0, 168, 120, 0.15);
-  }
-
   .callout {
     background: rgba(229, 167, 0, 0.08);
     border-color: rgba(245, 215, 122, 0.3);
@@ -259,12 +276,20 @@ code {
     border-color: #00d896;
   }
 
+  section h2 {
+    color: #ededed;
+  }
+
   .suggestions h3 {
     color: #ededed;
   }
 
   .suggestions p {
     color: #a0a0a0;
+  }
+
+  .copy-feedback {
+    color: #00d896;
   }
 
   footer {
