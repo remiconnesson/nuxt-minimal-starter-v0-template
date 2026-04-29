@@ -54,7 +54,7 @@ onUnmounted(() => {
 
 <template>
   <main
-    class="flex min-h-screen flex-col items-center justify-center px-4 py-8 bg-background"
+    class="flex min-h-screen flex-col items-center justify-center px-4 py-8"
     @touchstart.passive="handleTouchStart"
     @touchend.passive="handleTouchEnd"
   >
